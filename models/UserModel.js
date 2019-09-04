@@ -13,9 +13,6 @@ userSchema.statics = {
     userData.save(callback);
   },
   loginUser: function(data, callback) {
-    console.log("uuidv4", uuidv4());
-    // const tokgen2 = new TokenGenerator(256, TokenGenerator.BASE62);
-    // console.log("tfyguhijolkjihu", tokgen2);
     this.findOneAndUpdate(
       {
         password: md5(data.password)
