@@ -14,7 +14,8 @@ var userSchema = new Schema({
     type: String
   },
   mobile: {
-    type: Number
+    type: Number,
+    unique: true
   },
   accessToken: [
     {

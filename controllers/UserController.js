@@ -1,9 +1,7 @@
 var userModel = require("/home/wohlig/Documents/Project/chatApplicationBackend/models/UserModel.js");
 
 exports.createUsers = function(req, res, next) {
-  console.log("rdtfyguhijokpjohig", req.body);
   userModel.createUser(req.body, function(err, user) {
-    console.log("ESRdtfyhijohiguf", user);
     if (err) {
       res.json({
         error: err
@@ -14,9 +12,7 @@ exports.createUsers = function(req, res, next) {
   });
 };
 exports.loginUser = function(req, res, next) {
-  console.log("rdtfyguhijokpjohig", req.body);
   userModel.loginUser(req.body, function(err, user) {
-    console.log("ESRdtfyhijohiguf", user);
     // if (err) {
     //   res.json({
     //     error: err
@@ -25,5 +21,16 @@ exports.loginUser = function(req, res, next) {
     // res.json({
     //   message: "User created successfully"
     // });
+  });
+};
+exports.getOne = function(req, res, next) {
+  userModel.getOne(req.body, function(err, user) {
+    if (err) {
+      res.json({
+        error: err
+      });
+    } else {
+      res.send(user);
+    }
   });
 };

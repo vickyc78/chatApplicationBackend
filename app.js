@@ -10,9 +10,7 @@ var Schema = mongoose.Schema;
 
 //initialise express router
 var router = express.Router();
-
 var app = express();
-
 // var bodyParserJSON = bodyParser.json();
 // var bodyParserURLEncoded = bodyParser.urlencoded({ extended: true });
 

@@ -1,4 +1,5 @@
 module.exports = {
-  PORT: 3001,
-  mongodbUrl: "mongodb://localhost:27017/chatApplication"
+  PORT: 5000,
+  mongodbUrl: "mongodb://localhost:27017/chatApplication",
+  name: "development"
 };
