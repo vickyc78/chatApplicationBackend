@@ -31,7 +31,13 @@ app.listen(port, function() {
 });
 
 //user routes
-var userRoutes = require("/home/wohlig/Documents/Project/chatApplicationBackend/config/router.js");
+// var userRoutes = require("/home/wohlig/Documents/Project/chatApplicationBackend/config/router.js");
+var userRoutes = require("/home/wohlig/Documents/Project/chatApplicationBackend/controllers/UserController");
+/**
+ * app.use(path,callback)
+ * path:-The path for which the middleware function is invoked,
+ * callback:-Callback functions
+ */
 app.use("/User", router);
 
 app.use(function(req, res, next) {

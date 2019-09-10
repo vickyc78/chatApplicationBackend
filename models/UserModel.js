@@ -2,13 +2,32 @@ var mongoose = require("mongoose");
 var md5 = require("md5");
 var TokenGenerator = require("uuid-token-generator");
 const uuidv4 = require("uuid/v4");
+var async = require("async");
 var userSchema = require("/home/wohlig/Documents/Project/chatApplicationBackend/mongooseModel/User.js");
+
 userSchema.statics = {
   createUser: function(data, callback) {
-    console.log("DFGHJKLKJUYHJKIJU", data);
-    data.password = md5(data.password);
-    var userData = new this(data);
-    userData.save(callback);
+    async.waterfall(
+      [
+        function(callback) {
+          User.findOne({
+            password: md5(data.password)
+          }).then(result => {
+            console.log("TFYGUhiugfryguh", result);
+          });
+        }
+      ],
+      callback
+    );
+    // data.password = md5(data.password);
+    // var userData = new this(data);
+    // userData.save((err, result) => {
+    //   if (err) {
+    //     callback(err);
+    //   } else {
+    //     callback(null, result);
+    //   }
+    // });
   },
   loginUser: function(data, callback) {
     this.findOneAndUpdate(
@@ -30,5 +49,5 @@ userSchema.statics = {
     }).exec(function(err, result) {});
   }
 };
-var userModel = mongoose.model("User", userSchema);
-module.exports = userModel;
+var User = mongoose.model("User", userSchema);
+module.exports = User;
