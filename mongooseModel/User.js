@@ -27,7 +27,14 @@ var userSchema = new Schema({
         type: Date
       }
     }
-  ]
+  ],
+  isVerified: {
+    enum: ["true", "false"],
+    default: false
+  },
+  otp: {
+    type: Number
+  }
 });
 // export default mongoose.model("User", userSchema);
 module.exports = userSchema;
